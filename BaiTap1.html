@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài Tập 1 - Kết Quả Game CSS Selector</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            padding: 30px 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            background: #2563eb;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .back-btn:hover {
+            background: #1d4ed8;
+        }
+        .box {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+        h2 {
+            color: #1e3a8a;
+            margin-top: 0;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 12px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #fff;
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .card p {
+            margin: 0;
+            padding: 10px;
+            text-align: center;
+            font-weight: 600;
+            background: #f1f5f9;
+            border-top: 1px solid #e2e8f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top-bar">
+            <h1><i class="fa-solid fa-gamepad"></i> Bài Tập 1: Minh Chứng Vượt Qua Game CSS</h1>
+            <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Về Trang Chủ</a>
+        </div>
+
+        <div class="box">
+            <h2>1. Game 1 (Hoàn thành)</h2>
+            <div style="max-width: 700px; margin: 0 auto;">
+                <div class="card">
+                    <img src="../../imgs/game 1-done.png" onerror="this.onerror=null; this.src='imgs/game 1-done.png';" alt="Game 1 Done">
+                    <p>game 1-done.png</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <h2>2. Game 2: CSS Speedrun (Start, Intro, Level 1 -> Level 10)</h2>
+            <div class="grid">
+                <div class="card"><img src="../../imgs/game 2-start.png" onerror="this.onerror=null; this.src='imgs/game 2-start.png';" alt="Start"><p>Start</p></div>
+                <div class="card"><img src="../../imgs/game 2-intro.png" onerror="this.onerror=null; this.src='imgs/game 2-intro.png';" alt="Intro"><p>Intro</p></div>
+                <div class="card"><img src="../../imgs/game 2-lv1.png" onerror="this.onerror=null; this.src='imgs/game 2-lv1.png';" alt="Level 1"><p>Level 1</p></div>
+                <div class="card"><img src="../../imgs/game 2-lv2.png" onerror="this.onerror=null; this.src='imgs/game 2-lv2.png';" alt="Level 2"><p>Level 2</p></div>
+                <div class="card"><img src="../../imgs/game 2-lv3.png" onerror="this.onerror=null; this.src='imgs/game 2-lv3.png';" alt="Level 3"><p>Level 3</p></div>
+                <div class="card"><img src="../../imgs/game 2-lv4.png" onerror="this.onerror=null; this.src='imgs/game 2-lv4.png';" alt="Level 4"><p>Level 4</p></div>
+                <div class="card"><img src="../../imgs/game 2-lv5.png" onerror="this.onerror=null; this.src='imgs/game 2-lv5.png';" alt="Level 5"><p>Level 5</p></div>
+                <div class="card"><img src="../../imgs/game 2-lv7.png" onerror="this.onerror=null; this.src='imgs/game 2-lv7.png';" alt="Level 7"><p>Level 7</p></div>
+                <div class="card"><img src="../../imgs/game 2-lv8.png" onerror="this.onerror=null; this.src='imgs/game 2-lv8.png';" alt="Level 8"><p>Level 8</p></div>
+                <div class="card"><img src="../../imgs/game 2-lv9.png" onerror="this.onerror=null; this.src='imgs/game 2-lv9.png';" alt="Level 9"><p>Level 9</p></div>
+                <div class="card"><img src="../../imgs/game 2-lv10.png" onerror="this.onerror=null; this.src='imgs/game 2-lv10.png';" alt="Level 10"><p>Level 10</p></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

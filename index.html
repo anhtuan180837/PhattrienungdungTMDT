@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài Tập Tuần 3 - Phát Triển Ứng Dụng TMĐT</title>
+    <!-- Tích hợp Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 30px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header Trang Chủ */
+        header {
+            background: linear-gradient(135deg, #1e3a8a, #2563eb);
+            color: white;
+            padding: 35px 30px;
+            border-radius: 16px;
+            text-align: center;
+            margin-bottom: 35px;
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.05rem;
+            opacity: 0.9;
+        }
+
+        /* Danh sách điều hướng Bài 1 -> Bài 10 */
+        .section-title {
+            font-size: 1.4rem;
+            color: #0f172a;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i {
+            color: var(--primary);
+        }
+
+        .exercise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 16px;
+            margin-bottom: 45px;
+        }
+
+        .exercise-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 18px 20px;
+            text-decoration: none;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.25s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+
+        .exercise-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.12);
+        }
+
+        .exercise-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+        }
+
+        .exercise-info i {
+            font-size: 1.25rem;
+            color: var(--primary);
+            width: 28px;
+            text-align: center;
+        }
+
+        .arrow-icon {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            transition: transform 0.2s ease;
+        }
+
+        .exercise-card:hover .arrow-icon {
+            transform: translateX(4px);
+            color: var(--primary);
+        }
+
+        /* Khu vực hiển thị hình ảnh Bài 1 (Game CSS) */
+        .game-section {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 35px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+        }
+
+        .game-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .game-header h3 {
+            font-size: 1.25rem;
+            color: #1e3a8a;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .badge {
+            background: #dcfce7;
+            color: #15803d;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .gallery-single {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .img-card {
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            background: #f1f5f9;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .img-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .img-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            cursor: pointer;
+        }
+
+        .img-caption {
+            padding: 12px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.95rem;
+            background: white;
+            border-top: 1px solid var(--border);
+            color: #334155;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1><i class="fa-solid fa-laptop-code"></i> BÀI TẬP THỰC HÀNH TUẦN 3 (VỀ NHÀ)</h1>
+            <p>Họ và tên: Nguyễn Anh Tuấn | Môn: Phát triển ứng dụng TMĐT</p>
+        </header>
+
+        <!-- Menu Liên Kết Bài 1 -> Bài 10 -->
+        <h2 class="section-title"><i class="fa-solid fa-folder-open"></i> Danh Sách Bài Tập (Bài 1 - Bài 10)</h2>
+        <div class="exercise-grid">
+            <a href="BaiTap1.html" class="exercise-card">
+                <span class="exercise-info"><i class="fa-solid fa-gamepad"></i> Bài Tập 1 (Game)</span>
+                <i class="fa-solid fa-chevron-right arrow-icon"></i>
+            </a>
+            <a href="BaiTap2.html" class="exercise-card">
+                <span class="exercise-info"><i class="fa-solid fa-code"></i> Bài Tập 2</span>
+                <i class="fa-solid fa-chevron-right arrow-icon"></i>
+            </a>
+            <a href="BaiTap3.html" class="exercise-card">
+                <span class="exercise-info"><i class="fa-solid fa-code"></i> Bài Tập 3</span>
+                <i class="fa-solid fa-chevron-right arrow-icon"></i>
+            </a>
+            <a href="BaiTap4.html" class="exercise-card">
+                <span class="exercise-info"><i class="fa-solid fa-code"></i> Bài Tập 4</span>
+                <i class="fa-solid fa-chevron-right arrow-icon"></i>
+            </a>
+            <a href="BaiTap5.html" class="exercise-card">
+                <span class="exercise-info"><i class="fa-solid fa-code"></i> Bài Tập 5</span>
+                <i class="fa-solid fa-chevron-right arrow-icon"></i>
+            </a>
+            <a href="BaiTap6.html" class="exercise-card">
+                <span class="exercise-info"><i class="fa-solid fa-code"></i> Bài Tập 6</span>
+                <i class="fa-solid fa-chevron-right arrow-icon"></i>
+            </a>
+            <a href="BaiTap7.html" class="exercise-card">
+                <span class="exercise-info"><i class="fa-solid fa-code"></i> Bài Tập 7</span>
+                <i class="fa-solid fa-chevron-right arrow-icon"></i>
+            </a>
+            <a href="BaiTap8.html" class="exercise-card">
+                <span class="exercise-info"><i class="fa-solid fa-code"></i> Bài Tập 8</span>
+                <i class="fa-solid fa-chevron-right arrow-icon"></i>
+            </a>
+            <a href="BaiTap9.html" class="exercise-card">
+                <span class="exercise-info"><i class="fa-solid fa-code"></i> Bài Tập 9</span>
+                <i class="fa-solid fa-chevron-right arrow-icon"></i>
+            </a>
+            <a href="BaiTap10.html" class="exercise-card">
+                <span class="exercise-info"><i class="fa-solid fa-code"></i> Bài Tập 10</span>
+                <i class="fa-solid fa-chevron-right arrow-icon"></i>
+            </a>
+        </div>
+
+        <!-- Minh chứng Bài 1: Game 1 & Game 2 -->
+        <h2 class="section-title"><i class="fa-solid fa-trophy"></i> Minh Chứng Bài 1: Kết Quả Chơi Game CSS</h2>
+
+        <!-- Khu vực Game 1 -->
+        <div class="game-section">
+            <div class="game-header">
+                <h3><i class="fa-solid fa-flag-checkered"></i> Game 1: Hoàn Thành Thử Thách</h3>
+                <span class="badge"><i class="fa-solid fa-check"></i> Completed</span>
+            </div>
+            <div class="gallery-single">
+                <div class="img-card">
+                    <img src="../../imgs/game 1-done.png" onerror="this.onerror=null; this.src='imgs/game 1-done.png';" alt="Game 1 Done">
+                    <div class="img-caption">Game 1 - Hoàn thành (game 1-done.png)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Khu vực Game 2 -->
+        <div class="game-section">
+            <div class="game-header">
+                <h3><i class="fa-solid fa-bolt"></i> Game 2: CSS Speedrun (Start, Intro & Level 1 - Level 10)</h3>
+                <span class="badge"><i class="fa-solid fa-check-double"></i> 11 Screenshots</span>
+            </div>
+            <div class="gallery-grid">
+                <!-- Start -->
+                <div class="img-card">
+                    <img src="../../imgs/game 2-start.png" onerror="this.onerror=null; this.src='imgs/game 2-start.png';" alt="Game 2 Start">
+                    <div class="img-caption">Bắt đầu (game 2-start.png)</div>
+                </div>
+                <!-- Intro -->
+                <div class="img-card">
+                    <img src="../../imgs/game 2-intro.png" onerror="this.onerror=null; this.src='imgs/game 2-intro.png';" alt="Game 2 Intro">
+                    <div class="img-caption">Màn Intro (game 2-intro.png)</div>
+                </div>
+                <!-- Level 1 -->
+                <div class="img-card">
+                    <img src="../../imgs/game 2-lv1.png" onerror="this.onerror=null; this.src='imgs/game 2-lv1.png';" alt="Game 2 Level 1">
+                    <div class="img-caption">Level 1 (game 2-lv1.png)</div>
+                </div>
+                <!-- Level 2 -->
+                <div class="img-card">
+                    <img src="../../imgs/game 2-lv2.png" onerror="this.onerror=null; this.src='imgs/game 2-lv2.png';" alt="Game 2 Level 2">
+                    <div class="img-caption">Level 2 (game 2-lv2.png)</div>
+                </div>
+                <!-- Level 3 -->
+                <div class="img-card">
+                    <img src="../../imgs/game 2-lv3.png" onerror="this.onerror=null; this.src='imgs/game 2-lv3.png';" alt="Game 2 Level 3">
+                    <div class="img-caption">Level 3 (game 2-lv3.png)</div>
+                </div>
+                <!-- Level 4 -->
+                <div class="img-card">
+                    <img src="../../imgs/game 2-lv4.png" onerror="this.onerror=null; this.src='imgs/game 2-lv4.png';" alt="Game 2 Level 4">
+                    <div class="img-caption">Level 4 (game 2-lv4.png)</div>
+                </div>
+                <!-- Level 5 -->
+                <div class="img-card">
+                    <img src="../../imgs/game 2-lv5.png" onerror="this.onerror=null; this.src='imgs/game 2-lv5.png';" alt="Game 2 Level 5">
+                    <div class="img-caption">Level 5 (game 2-lv5.png)</div>
+                </div>
+                <!-- Level 7 (Bỏ qua lv6 theo đúng file hiện có) -->
+                <div class="img-card">
+                    <img src="../../imgs/game 2-lv7.png" onerror="this.onerror=null; this.src='imgs/game 2-lv7.png';" alt="Game 2 Level 7">
+                    <div class="img-caption">Level 7 (game 2-lv7.png)</div>
+                </div>
+                <!-- Level 8 -->
+                <div class="img-card">
+                    <img src="../../imgs/game 2-lv8.png" onerror="this.onerror=null; this.src='imgs/game 2-lv8.png';" alt="Game 2 Level 8">
+                    <div class="img-caption">Level 8 (game 2-lv8.png)</div>
+                </div>
+                <!-- Level 9 -->
+                <div class="img-card">
+                    <img src="../../imgs/game 2-lv9.png" onerror="this.onerror=null; this.src='imgs/game 2-lv9.png';" alt="Game 2 Level 9">
+                    <div class="img-caption">Level 9 (game 2-lv9.png)</div>
+                </div>
+                <!-- Level 10 -->
+                <div class="img-card">
+                    <img src="../../imgs/game 2-lv10.png" onerror="this.onerror=null; this.src='imgs/game 2-lv10.png';" alt="Game 2 Level 10">
+                    <div class="img-caption">Level 10 - Hoàn tất (game 2-lv10.png)</div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Nguyễn Anh Tuấn - Bài tập thực hành Tuần 3</p>
+        </footer>
+    </div>
+
+</body>
+</html>
