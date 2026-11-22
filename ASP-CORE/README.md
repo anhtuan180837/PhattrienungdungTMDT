@@ -11,9 +11,38 @@ Các chức năng chính:
 - Nhập thông tin giao hàng, lưu hóa đơn và chi tiết đơn hàng, hiển thị kết quả checkout.
 - Có giao diện đăng ký, đăng nhập của ASP.NET Core Identity.
 
-## Tình trạng triển khai
+## Tình hình triển khai
 
-Theo tình trạng được cung cấp, website và Checkout đã chạy trên Somee và đơn hàng được ghi nhận. Email xác nhận chưa gửi được trên Somee; nguyên nhân chưa được xác minh. Khi gửi email thất bại, trang kết quả vẫn thông báo đơn hàng đã lưu và email chưa gửi được.
+Dự án website quản lý và đặt mua phim đã được hoàn thiện, kiểm thử trên
+máy cá nhân và triển khai công khai trên Somee:
+
+- Website: http://uehptudw33221020508.somee.com
+- Mã nguồn được lưu trong thư mục `ASP-CORE/SourceCode` của repository.
+
+Các nội dung đã thực hiện:
+
+- Xây dựng giao diện website và cá nhân hóa theo thông tin sinh viên.
+- Xây dựng chức năng hiển thị, quản lý phim và thể loại phim.
+- Xây dựng các chức năng tài khoản người dùng.
+- Xây dựng giỏ hàng: thêm phim, cập nhật số lượng và xóa sản phẩm.
+- Xây dựng chức năng thanh toán, nhập thông tin giao hàng và lưu đơn hàng.
+- Kết nối ứng dụng với cơ sở dữ liệu và thực hiện các migration cần thiết.
+- Xây dựng chức năng gửi email xác nhận sau khi đặt hàng.
+- Publish ứng dụng và triển khai website lên Somee.
+
+Khi kiểm thử trên máy cá nhân trước khi triển khai, chức năng gửi email
+xác nhận đơn hàng hoạt động. Sau khi triển khai lên Somee, website vẫn
+ghi nhận và lưu đơn hàng, nhưng email xác nhận chưa được gửi thành công.
+
+Nguyên nhân cần tiếp tục kiểm tra. Một khả năng là cấu hình tài khoản
+email được lưu trong User Secrets trên máy cá nhân không tự động đi kèm
+bản publish, nên ứng dụng trên Somee chưa nhận được thông tin cần thiết.
+Ngoài ra, cần kiểm tra xác thực tài khoản gửi và khả năng kết nối SMTP
+từ hosting trước khi kết luận nguyên nhân.
+
+Hướng khắc phục là cấu hình thông tin gửi email an toàn trên môi trường
+hosting, kiểm tra nhật ký ứng dụng và xác nhận kết nối tới dịch vụ SMTP.
+Thông tin đăng nhập và mật khẩu ứng dụng không được đưa lên repository.
 
 ## Cấu trúc
 
