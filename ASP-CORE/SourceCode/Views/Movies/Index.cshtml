@@ -1,0 +1,18 @@
+@model IEnumerable<_33221020508_NguyenAnhTuan.Models.Movie>
+@{ ViewData["Title"] = "Danh sách phim"; }
+<section class="catalog-intro">
+    <div class="catalog-intro-content">
+        <span class="eyebrow">TỦ PHIM CỦA BẠN</span>
+        <h1>Khám phá phim</h1>
+        <p>Tìm một bộ phim yêu thích và thêm vào bộ sưu tập của bạn.</p>
+    </div>
+</section>
+<div class="catalog-toolbar">
+    <div><h2>Danh sách phim</h2><p>Khám phá các phim hiện có</p></div>
+    <a class="btn btn-primary" asp-action="Create">+ Thêm phim mới</a>
+</div>
+<div class="movie-grid">
+@foreach (var item in Model) {
+<article class="movie-card"><div class="poster-wrap"><img src="@item.PicturePath" alt="Ảnh phim @item.Title" loading="lazy" /></div><div class="movie-content"><div class="movie-meta"><span>@(item.GenreObj?.Name ?? item.Genre ?? "Chưa phân loại")</span><span>★ @item.Rated</span></div><h2>@item.Title</h2><p class="movie-summary">@item.Summary</p><p class="movie-date">Phát hành: @item.ReleaseDate.ToString("dd/MM/yyyy")</p><div class="movie-purchase"><strong>@item.Price.ToString("N0") <small>đ</small></strong><a class="btn btn-primary" asp-action="AddToCart" asp-route-id="@item.ID">Mua</a></div><div class="movie-actions"><a asp-action="Edit" asp-route-id="@item.ID">Sửa</a><a asp-action="Details" asp-route-id="@item.ID">Chi tiết</a><a asp-action="Delete" asp-route-id="@item.ID">Xóa</a></div></div></article>
+}
+</div>
